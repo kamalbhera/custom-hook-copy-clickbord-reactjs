@@ -1,7 +1,9 @@
 import logo from './logo.svg';
 import './App.css';
+import { useCopyToClipboard } from './hook/useCopyToClipboard';
 
 function App() {
+  const [isCopied, copy] = useCopyToClipboard("Text to copy!");
   return (
     <div className="App">
       <header className="App-header">
@@ -17,6 +19,7 @@ function App() {
         >
           Learn React
         </a>
+        <button className='button' onClick={copy}>{isCopied ? "Copied!" : "Copy"}</button>
       </header>
     </div>
   );
